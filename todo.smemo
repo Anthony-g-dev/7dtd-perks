@@ -1,6 +1,0 @@
-Ajouter la possibilité de selectioner/déselectionner une compétence optionel et l'ajouter au récap'.
-Ajouter un total des points utilisé dans le recap'.
-Ajouter un block "Armes" afin de définir son style de combat et indiquer les compétences associées.
-
-
-HTML: 261 lignes en pur HTML -> 97 lignes avec la "génération modulaire".
