@@ -1,0 +1,100 @@
+//
+//
+//  ██████  ██████  ███    ███ ██████  ████████ ███████ ███    ██  ██████ ███████ ███████     ██████  ██████  ██ ███    ███  █████  ██ ██████  ███████ ███████
+// ██      ██    ██ ████  ████ ██   ██    ██    ██      ████   ██ ██      ██      ██          ██   ██ ██   ██ ██ ████  ████ ██   ██ ██ ██   ██ ██      ██     
+// ██      ██    ██ ██ ████ ██ ██████     ██    █████   ██ ██  ██ ██      █████   ███████     ██████  ██████  ██ ██ ████ ██ ███████ ██ ██████  █████   ███████
+// ██      ██    ██ ██  ██  ██ ██         ██    ██      ██  ██ ██ ██      ██           ██     ██      ██   ██ ██ ██  ██  ██ ██   ██ ██ ██   ██ ██           ██
+//  ██████  ██████  ██      ██ ██         ██    ███████ ██   ████  ██████ ███████ ███████     ██      ██   ██ ██ ██      ██ ██   ██ ██ ██   ██ ███████ ███████
+//
+//	Attributs de base : 10/10 [4x1pts 3x2pts 2x3pts] (Augmente les dégâts à la tête et les chances de démembrement des armes relatives à cet attribut)
+//	P > Le transperceur (Ignore une partie de l'armure. Certaines armes peuvent transpercer et toucher plusieurs ennemies) [4x1pts]
+//	P > Chanceux (Trouvez du butin de meilleur qualité et fouille plus rapide) [5x1pts]
+//	F > Bombe sexuelle (Réduis l'endurance consommée lors d'attaque au corps à corps et lors de l'utilisation d'outils) [4x1pts]
+//	F > Mule (Permet de porter plus sans être encombré) [5x1pts]
+//	F > Ruée vers l'or (Fabrique des outils de récolte de plus haut niveau et ces derniers font plus de dégâts et dégâts de bloc) [5x1pts]
+//	F > Part du lion (Les outils de récoltes rapporte plus de butin) [5x1pts]
+//	C > Bien isolé (Réduis les debuff lié à la température et augmente de 20 points l'isolation thermique globale) [3x1pts]
+//	C > Résistance à la douleur (Réduis les dégâts reçus, permet de ne plus être étourdis) [5x1pts]
+//	C > Capacité régénératrice (Les blessures se soignent plus rapidement, octroie régénération des PV passive) [5x1pts]
+//	C > Estomac d'acier (Vous avez faim et soif moins souvent, apnée plus longue, les buffs durent plus longtemps) [5x1pts]
+//	C > Règle1: le cardio (Vous courrez plus longtemps) [3x1pts]
+//	I > L'aventurier téméraire (Vous gagnez de meilleurs récompenses en accomplissant vos missions et gagner plus d'argent) [4x1pts]
+//	I > Charisme naturel (Accorde différents bonus à vos compagnons proches) [4x1pts]
+//
+//
+//
+// ███    ███ ███████ ████████ ██ ███████ ██████  ███████
+// ████  ████ ██         ██    ██ ██      ██   ██ ██     
+// ██ ████ ██ █████      ██    ██ █████   ██████  ███████
+// ██  ██  ██ ██         ██    ██ ██      ██   ██      ██
+// ██      ██ ███████    ██    ██ ███████ ██   ██ ███████                                                 
+// 
+// 	Glaneur:
+// 		P > Opération récupération (Permet de construire des outils de récupération de plus haut niveau, de récupérer plus de ressources et plus rapidement sur les machines) [5x1pts]
+// 
+// 	Pisteur:
+// 		P > Crochetage de serrure (Le crochetage est plus rapide et les outils se cassent moins souvent) [3x1pts]
+// 		P > Pisteur animalier (Permet de détecter les animaux aux alentours) [3x1 pts]
+// 		P > Chasseur de trésors (Le trésor contient plus de ressources et est plus facile à trouver) [3x1pts]
+// 
+// 	Chasseur:
+// 		P > Pisteur animalier (Permet de detecter les animaux aux alentours) [3x1pts]
+// 		C > Le chasseur (Récolte plus de ressources sur les animaux) [5x1pts]
+// 
+// 	Agriculteur:
+// 		C > Vie à la campagne (Débloque des recettes, récolte plus de ressources sur les plants et reduis le cout de construction des parcelles cultivable) [3x1pts]
+// 
+// 	Cuisinier:
+// 		F > Maître cuisinier (Cuisine plus rapidement et nécéssite moins d'ingredients. Permet de débloquer certaines recettes) [5x1pts]
+// 
+// 	Médecin:
+// 		I > Médecin (Débloque des recettes, fabriquez des objets médicaux plus rapidement) [4x1pts]
+// 
+// 	Ingénieur:
+// 		I > Inventeur en robotique (Augmente la qualité des tourelles et leurs nombre) [5x1pts]
+// 		I > Ingénierie avancée (Débloque des recettes, fabriquez des objets à la forge en utilisant moins de materiaux) [5x1pts]
+// 		I > Mécanicien (Débloque des recettes, les éléments de véhicules coutent moins cher) [5x1pts]
+// 
+// 
+// 
+//  █████  ██    ██ ████████ ██████  ███████ ███████
+// ██   ██ ██    ██    ██    ██   ██ ██      ██     
+// ███████ ██    ██    ██    ██████  █████   ███████
+// ██   ██ ██    ██    ██    ██   ██ ██           ██
+// ██   ██  ██████     ██    ██   ██ ███████ ███████
+// 
+// 	Facultatif:
+// 		P > L'infiltrateur (Les mines et les pièges vous inflige moins de dégâts et sont retardé) [3x1pts]
+// 		A > Courir et tirer (Rèduis les pénalité de mouvement lors du rechargement, augmente la précision du tir au jugé) [3x1pts]
+// 		A > Parkour (Réduis l'endurance consommée lors des saut, vous sautez plus haut, vous ne pouvez plus vous casser de membres en sautant) [4x1pts]
+// 		A > Frappe discrète (Augmente les dégâts discrets) [5x1pts]
+// 		A > Enfant de l'ombre (Augmente votre furtivité et réduis le temps de poursuite des zombies) [5x1pts]
+// 		I > Meilleur troqueur (Vous profitez de meilleures réductions et vous vendez vos objets plus chers) [5x1pts]
+
+//
+//
+//	P > Précis (Infligez plus de dégâts, visez plus rapidement et plus longtemps et rechargez plus rapidement avec les fusils) [5x1pts]
+//	P > Expert en démoliton () [5x1pts]
+//	P > Maitre du javelot () [5x1pts]
+//	F > Baguette magique () [5x1pts]
+//	F > Pete la terreur () [5x1pts]
+//	F > Brise-crâne () [5x1pts]
+//	F > Armure lourde () [4x1pts]
+//	C > Le bagarreur () [5x1pts]
+//	C > Mitrailleur () [5x1pts]
+//	A > Tir à l'arc () [5x1pts]
+//	A > Pistoléro () [5x1pts]
+//	A > Entailles profondes () [5x1pts]
+//	A > Armure légère () [4x1pts]
+//	I > Électrocuteur () [5x1pts]
+//
+//
+
+303 points total (niveau 299 + 4pts du didacticiel)
+Metiers (Possiblité de combiner plusieurs métiers) -> Modules (Possibilité de selectionner ou non certaines compétences)
+
+Perception Force Courage Agilité Intelligence
+
+
+Icons found here : https://www.flaticon.com/search?word=gold&license=selection&style_id=686
+Icons by Darius Dan (http://www.dariusdan.com/)
